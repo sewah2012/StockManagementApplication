@@ -29,18 +29,20 @@ namespace FirstApp
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.nom = new System.Windows.Forms.TextBox();
+            this.username = new System.Windows.Forms.TextBox();
+            this.password = new System.Windows.Forms.TextBox();
+            this.prenom = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -78,37 +80,37 @@ namespace FirstApp
             this.label1.TabIndex = 0;
             this.label1.Text = "SYSTEME DE GESTION DES STOCKS";
             // 
-            // textBox1
+            // nom
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 166);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "Full Name";
-            this.textBox1.Size = new System.Drawing.Size(223, 23);
-            this.textBox1.TabIndex = 1;
+            this.nom.Location = new System.Drawing.Point(12, 166);
+            this.nom.Name = "nom";
+            this.nom.PlaceholderText = "Nom";
+            this.nom.Size = new System.Drawing.Size(223, 23);
+            this.nom.TabIndex = 1;
             // 
-            // textBox2
+            // username
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 211);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PlaceholderText = "Username";
-            this.textBox2.Size = new System.Drawing.Size(223, 23);
-            this.textBox2.TabIndex = 1;
+            this.username.Location = new System.Drawing.Point(12, 252);
+            this.username.Name = "username";
+            this.username.PlaceholderText = "Username";
+            this.username.Size = new System.Drawing.Size(223, 23);
+            this.username.TabIndex = 1;
             // 
-            // textBox3
+            // password
             // 
-            this.textBox3.Location = new System.Drawing.Point(12, 257);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.PlaceholderText = "Password";
-            this.textBox3.Size = new System.Drawing.Size(223, 23);
-            this.textBox3.TabIndex = 1;
+            this.password.Location = new System.Drawing.Point(12, 298);
+            this.password.Name = "password";
+            this.password.PlaceholderText = "Password";
+            this.password.Size = new System.Drawing.Size(223, 23);
+            this.password.TabIndex = 1;
             // 
-            // textBox4
+            // prenom
             // 
-            this.textBox4.Location = new System.Drawing.Point(12, 303);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.PlaceholderText = "Phone";
-            this.textBox4.Size = new System.Drawing.Size(223, 23);
-            this.textBox4.TabIndex = 1;
+            this.prenom.Location = new System.Drawing.Point(12, 213);
+            this.prenom.Name = "prenom";
+            this.prenom.PlaceholderText = "Prenom";
+            this.prenom.Size = new System.Drawing.Size(223, 23);
+            this.prenom.TabIndex = 1;
             // 
             // button1
             // 
@@ -134,6 +136,7 @@ namespace FirstApp
             this.button2.TabIndex = 2;
             this.button2.Text = "Modifier";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -146,6 +149,7 @@ namespace FirstApp
             this.button3.TabIndex = 2;
             this.button3.Text = "Supprimer";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -161,31 +165,56 @@ namespace FirstApp
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(427, 144);
+            this.dataGridView1.Location = new System.Drawing.Point(293, 144);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(501, 273);
+            this.dataGridView1.RowTemplate.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(635, 273);
             this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(12, 121);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 23);
+            this.comboBox1.TabIndex = 4;
             // 
             // ManageUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(972, 503);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.prenom);
+            this.Controls.Add(this.password);
+            this.Controls.Add(this.username);
+            this.Controls.Add(this.nom);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ManageUsers";
             this.Text = "xxxxxxxxxxx";
+            this.Load += new System.EventHandler(this.ManageUsers_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -199,14 +228,15 @@ namespace FirstApp
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox nom;
+        private System.Windows.Forms.TextBox username;
+        private System.Windows.Forms.TextBox password;
+        private System.Windows.Forms.TextBox prenom;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
