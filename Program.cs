@@ -17,7 +17,7 @@ namespace FirstApp
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ManageUsers());
+            Application.Run(new GestionDeStock.GestionDeCategorie());
         }
     }
 }

@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Data;
 using System.Data.SQLite;
 using System.Diagnostics;
 using System.IO;
+using System.Windows.Forms;
 
 public class Cnx
 {
@@ -49,9 +51,25 @@ public class Cnx
             Debug.WriteLine(ex);
         }
 
-
     }
 
+    public static void populateTable(SQLiteConnection conn, String query, DataGridView dv)
+    {
+        SQLiteCommand cmd = new SQLiteCommand(query, conn);
+        DataTable dt = new DataTable();
+        SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
+        adapter.Fill(dt);
+
+        dv.DataSource= dt;
+    }
+
+    public static SQLiteDataReader getData(SQLiteConnection conn, String query)
+    {
+        SQLiteCommand cmd = new SQLiteCommand(query, conn);
+        SQLiteDataReader rdr = cmd.ExecuteReader();
+
+        return rdr;
+    }
 
 
 
