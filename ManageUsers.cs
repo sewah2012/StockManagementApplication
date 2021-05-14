@@ -57,8 +57,8 @@ namespace FirstApp
 
         private void ManageUsers_Load(object sender, EventArgs e)
         {
-            
-            this.comboBox1.Items.Add("MANAGER");
+
+              this.comboBox1.Items.Add("MANAGER");
             this.comboBox1.Items.Add("EMPLOYEE");
             this.comboBox1.SelectedIndex = 0;
 
